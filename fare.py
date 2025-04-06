@@ -27,9 +27,15 @@ def main():
     except Exception:
         print("{} is not a number".format(age_string))
     
-    # get the user's location
-    user_city = int(input("Please enter your city in Ontario: "))
-    
+    # get the user's location and day of the week
+    city_string = input("Please enter your city in Ontario: ")
+    day = int(input("Enter the day: "))
+
+    # CAST city_string into an integer
+    try:
+        city_integer = int(city_string)
+
+
 
 
 
