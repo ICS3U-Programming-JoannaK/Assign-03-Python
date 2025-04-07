@@ -29,11 +29,10 @@ def main():
     
     # get the user's location and day of the week
     city_string = input("Please enter your city in Ontario: ")
-    day = int(input("Enter the day: "))
+    day = input("Enter the day: ")
 
-    # CAST city_string into an integer
-    try:
-        city_integer = int(city_string)
+    if age_integer > 65 and day == "Wednesday" or day == "Sunday" and city_string == "Ottawa":
+        print("The fare is free! Enjoy your day")
 
 
 
