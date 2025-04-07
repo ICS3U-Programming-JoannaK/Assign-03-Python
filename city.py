@@ -5,41 +5,44 @@
 # This program calculates the correct bus fare
 # based on the passenger’s age, time of day, and student/senior status
 
-import constants
+import constants_fare
 
 
 def main():
-    try:
-        # Age input
-        age_string = input("Please enter your age: ")
-        age_integer = int(age_string)
+    # get the user's age
+    age_string = input("Please enter your age: ")
 
-        # Age category
+    # CAST the string into an integer
+    try:
+        age_integer = int(age_string)
+        # if the user is older than 65
         if age_integer > 65:
             print("You are a senior")
+        # if the user is younger than 19
         elif age_integer < 19:
             print("You are a student/youth")
-        else:
+        # if the user is between 19 and 65
+        if age_integer > 19 and age_integer < 65:
             print("You are an adult")
+    # if the user does not enter a number
+    except ValueError:
+        print("{} is not a number".format(age_string))
 
-        # City input
-        city_integer = input("Please enter your city in Ontario: ")
-        city_string = str(city_integer)
+    # get the user's location and day of the week
+    city_string = input("Please enter your city in Ontario: ")
+    day_integer = input("Enter the day: ")
 
-        # Day input
-        day_string = input("Enter the day of the week: ")
-
-        # Free senior fare condition
-        if (
-            age_integer > 65
-            and city_string == "Ottawa"
-            and (day_string == "Wednesday" or day_string == "Sunday")
-        ):
-            print("The fare is free! Enjoy your day")
-
-    except Exception:
-        print("{} is not a valid input".format(city_integer))
-
+    if (
+    age_integer > 65
+    and day_integer == "Wednesday"
+    or day_integer == "Sunday"
+    and city_string == "Ottawa"):
+        if (age_integer < 19 or
+        age_integer > 19 and age_integer < 65):
+            print("Your bus fare is ${}".format(constants_fare.OC_STUDENT))
+        print("The fare is free! Enjoy your day")
+    else:
+        print("Your bus fare is ${}".format(constants_fare.OC_SENIOR))
 
 if __name__ == "__main__":
     main()
