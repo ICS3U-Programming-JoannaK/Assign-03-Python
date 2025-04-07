@@ -3,11 +3,13 @@
 # Created by: Joanna Keza
 # Date: April 6, 2025
 # This program calculates the correct bus fare
-# based on the passenger’s age, time of day, and student/senior status
+# based on the passenger’s age, time of day,
+# and student/senior status
 
 import constants
 
-def main(): 
+
+def main():
     # get the user's age
     age_string = input("Please enter your age: ")
 
@@ -26,17 +28,24 @@ def main():
     # if the user does not enter a number
     except Exception:
         print("{} is not a number".format(age_string))
-    
+
     # get the user's location and day of the week
-    city_string = input("Please enter your city in Ontario: ")
-    day = input("Enter the day: ")
+    city_integer = str(input("Please enter your city in Ontario: "))
+    day_integer = input("Enter the day: ")
 
-    if age_integer > 65 and day == "Wednesday" or day == "Sunday" and city_string == "Ottawa":
-        print("The fare is free! Enjoy your day")
-
-
-
-
+    # CAST age_string into an integer
+    try:
+        city_string = str(city_integer)
+        if (
+            age_integer > 65
+            and day_integer == "Wednesday"
+            or day_integer == "Sunday"
+            and city_integer == "Ottawa"
+        ):
+            print("The fare is free! Enjoy your day")
+    except Exception:
+        print("{} is not a valid day of the week".format(day_integer))
+        print("{} is not a valid input".format(city_integer))
 
 
 if __name__ == "__main__":
