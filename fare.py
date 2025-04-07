@@ -36,6 +36,16 @@ def main():
     except Exception:
         print("{} is not a valid input".format(age_string))
 
+    if bus_system_string == "TTC Toronto":
+        if (age_integer > 12) and (age_integer < 65):
+            print("Your fare is $()".format(constants_fare.TTC_ADULT))
+        elif age_integer > 65:
+            print("Your fare is ${}".format(constants_fare.TTC_SENIOR))
+        elif (age_integer > 13) and (age_integer < 19):
+            print("Your fare is ${}".format(constants_fare.TTC_STUDENT))
+        elif age_integer < 12:
+            print("There is no fare! It is free, have a great day!")
+
 
 if __name__ == "__main__":
     main()
