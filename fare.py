@@ -10,6 +10,13 @@ import constants_fare
 
 
 def main():
+    print("*****************************************")
+    print("*****************************************")
+    print("***           Hello user !             **")
+    print("*****************************************")
+    print("*****************************************")
+    print("\n")
+    print("\n")
     age_string = input("Enter your age: ")
 
     try:
