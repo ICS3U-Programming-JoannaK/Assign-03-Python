@@ -51,6 +51,8 @@ def main():
         except Exception:
             print("{} is not a valid input".format(bus_system_integer))
         finally:
+            print("\n")
+            print("\n")
             print("Thank you for using my program, I hope you have a wonderful day !")
 
     except Exception:
