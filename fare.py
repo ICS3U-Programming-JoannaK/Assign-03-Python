@@ -43,9 +43,9 @@ def main():
                 elif age_integer > 65:
                     if (day_string == "Wednesday") or (day_string == "Sunday"):
                         print("There is no fare! It is free, have a great day!")
-                # Covers the age group that wasn't covered in the previous if statements
-                else:
-                    print("Your fare is ${}".format(constants_fare.OC_SENIOR))
+                    # Covers the age group that wasn't covered in the previous if statements
+                    else:
+                        print("Your fare is ${}".format(constants_fare.OC_SENIOR))
             # The fare is free if the child is younger than 10
             if age_integer < 10:
                 print("There is no fare! It is free, have a great day!")
