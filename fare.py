@@ -31,7 +31,7 @@ def main():
         day_string = input("What day is today (eg; Monday, Thursday): ")
         # Get the user's transit's system
         bus_system_integer = input(
-            "Which transit system are you using today (OC Transpo/TTC Toronto): "
+            "Which transit system are you using today: "
         )
         try:
             # convert the transit system integer into a string
@@ -50,19 +50,6 @@ def main():
             if age_integer < 10:
                 print("There is no fare! It is free, have a great day!")
             # This runs when the user picks TTC Toronto as bus system
-            if bus_system_string == "TTC Toronto":
-                # This is the adult's bus fare
-                if (age_integer >= 19) and (age_integer < 65):
-                    print("Your fare is ${}".format(constants_fare.TTC_ADULT))
-                # This is the senior's bus fare
-                elif age_integer >= 65:
-                    print("Your fare is ${}".format(constants_fare.TTC_SENIOR))
-                # This is the student's bus fare
-                elif (age_integer > 13) and (age_integer < 18):
-                    print("Your fare is ${}".format(constants_fare.TTC_STUDENT))
-                # This is the fare for children under 12
-                elif age_integer <= 12:
-                    print("There is no fare! It is free, have a great day!")
         # Catches erroneous input for the bus system
         except Exception:
             print("{} is not a valid input".format(bus_system_integer))
@@ -74,7 +61,6 @@ def main():
     # Catches erroneous input for the user's age
     except Exception:
         print("{} is not a valid input".format(age_string))
-
 
 if __name__ == "__main__":
     main()
