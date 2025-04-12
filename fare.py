@@ -17,50 +17,50 @@ def main():
     print("*****************************************")
     print("*****************************************")
     print("\n")
-    print("\n")
     # Ask the user to input their age
     age_string = input("Enter your age: ")
 
     try:
         # This converts the age input string to an integer
         age_integer = int(age_string)
-        # If the age entered is less than , its not valid
         if age_integer < 1:
-            print("Please enter a valid age")
+            print("Please enter a valid age\n")
         # Ask the user for the day of the week
-        day_string = input("What day is today (eg; Monday, Thursday): ")
         # Get the user's transit's system
-        bus_system_integer = input(
-            "Which transit system are you using today: "
-        )
-        try:
-            # convert the transit system integer into a string
-            bus_system_string = str(bus_system_integer)
-            if bus_system_string == "OC Transpo":
+        bus_system_string = input("Which transit system are you using today: ")
+        # Ask the user for the day of the week
+        day_string = input("What day is today: ")
+        if not (
+            (day_string == "Monday")
+            or (day_string == "Tuesday")
+            or (day_string == "Wednesday")
+            or (day_string == "Thursday")
+            or (day_string == "Friday")
+            or (day_string == "Saturday")
+            or (day_string == "Sunday")
+        ):
+            print("\nPlease enter a valid day. For example; Monday, Tuesday etc. \n")
+        else:
+            if bus_system_string == "OC-Transpo":
                 # If the user is older than 65 on wednesday and sundays, the fare is free
+                if age_integer < 10:
+                    print("\nThere is no fare! It is free, have a great day!\n")
                 if (age_integer > 10) and (age_integer < 65):
-                    print("Your fare is ${}".format(constants_fare.OC_ADULT))
+                    print("\nYour fare is ${:,.2f}\n".format(constants_fare.OC_ADULT))
                 elif age_integer > 65:
                     if (day_string == "Wednesday") or (day_string == "Sunday"):
-                        print("There is no fare! It is free, have a great day!")
-                    # Covers the age group that wasn't covered in the previous if statements
+                        print("\nThere is no fare! It is free, have a great day!\n")
                     else:
-                        print("Your fare is ${}".format(constants_fare.OC_SENIOR))
-            # The fare is free if the child is younger than 10
-            if age_integer < 10:
-                print("There is no fare! It is free, have a great day!")
-            # This runs when the user picks TTC Toronto as bus system
-        # Catches erroneous input for the bus system
-        except Exception:
-            print("{} is not a valid input".format(bus_system_integer))
-        # This will run regardless at the end
-        finally:
-            print("\n")
-            print("\n")
-            print("Thank you for using my program, I hope you have a wonderful day !")
+                        print(
+                            "\nYour fare is ${:,.2f}\n".format(constants_fare.OC_SENIOR)
+                        )
     # Catches erroneous input for the user's age
     except Exception:
         print("{} is not a valid input".format(age_string))
+
+    finally:
+        print("Thank you for using my program, I hope you have a wonderful day !")
+
 
 if __name__ == "__main__":
     main()
